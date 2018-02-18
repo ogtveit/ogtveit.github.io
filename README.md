@@ -1,2 +1,2 @@
 # ogtveit
-ogtveit gitpage
+ogtveit gitpages page
