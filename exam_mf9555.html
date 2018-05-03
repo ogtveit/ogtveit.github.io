@@ -211,11 +211,11 @@ p.caption {
 Boxplot of weight by birth number and gender
 </p>
 </div>
-<p>Inspecting Table 1 and Figure 1 we see that boys (gender=2) have a higher average weight within all birth_no categories. And from the table it seems mean weight is increasing with higher birth order.</p>
+<p>Inspecting table 1 and figure 1 we see that boys (gender=2) have a higher average weight within all birth_no categories. And from the table it seems mean weight is increasing with higher birth order.</p>
 </div>
 <div id="excercise-1b" class="section level3">
 <h3>Excercise 1b</h3>
-<p>Build standard linear regression model with: gender, birth order and born after 1.1.1960, using lm-function.</p>
+<p>Building a linear regression model with <em>gender</em>, <em>birth_no</em> and (born) <em>after1959</em>:</p>
 <pre class="r"><code># generate variable for mother born after 1.1.60
 d1$after_1959 &lt;- (d1$birth_mo &gt; 59)*1
 # linear model
@@ -289,7 +289,7 @@ kable(round(cbind(tidy(d1.mod_b)[2:5], confint(d1.mod_b)),3),
 </div>
 <div id="excercise-1c" class="section level3">
 <h3>Excercise 1c</h3>
-<p>Run the same analysis with mixed model, with random intercepts for mothers.</p>
+<p>Building the model from 1b with a mixed model approach, with random intercepts for mothers:</p>
 <pre class="r"><code># mixed model
 d1.mod_c &lt;- lmer(weight ~ factor(gender) + factor(birth_no) + after_1959 + (1 | mother), data=d1)
 
@@ -380,7 +380,7 @@ kable(table_1c, format = 'pandoc', caption=&quot;Linear mixed model regression r
 <h2>Excercise 2</h2>
 <div id="excercise-2a" class="section level3">
 <h3>Excercise 2a</h3>
-<p>I will make a plot of the data with a binomial fit:</p>
+<p>To describe the data I have made a plot with binomial fit seen in figure 2.</p>
 <pre class="r"><code>d2 %&gt;%
   ggplot(aes(x = month, y = response, color = factor(trt))) + 
 #  geom_count() +
@@ -392,7 +392,7 @@ kable(table_1c, format = 'pandoc', caption=&quot;Linear mixed model regression r
 Binomial fit of the two groups mean change in response over time
 </p>
 </div>
-<p>And then print a table showing mean respons in the tow groups, at different timepoints (use visit instead of month here, to get an illustration of development that is easier to interpret).</p>
+<p>To get numeric sense of difference I have created a table (table 4) showing mean respons in the two groups at different timepoints (I used visit instead of month here, to get an illustration of development that is easier to interpret).</p>
 <pre class="r"><code>d2 %&gt;%
   group_by(trt, visit) %&gt;%
   summarise(response = mean(response)) %&gt;%
@@ -450,7 +450,7 @@ Binomial fit of the two groups mean change in response over time
 </div>
 <div id="excercise-2b" class="section level3">
 <h3>Excercise 2b</h3>
-<p>I chose to build a marginal model with GEE, with ‘id’ as the clustering unit. I will compare different working correlations. Models will include <em>month</em> + <em>trt</em> + <em>month:trt</em> as explanatory variables. The following table will show coefficients and QIC for the models with different working correlations:</p>
+<p>I chose to build a marginal model with GEE, with ‘id’ as the clustering unit. I will compare different working correlations. Models will include <em>month</em> + <em>trt</em> + <em>month:trt</em> as explanatory variables. Table 5 show coefficients and QIC for the models with different working correlations:</p>
 <pre class="r"><code># four gee models, with different covariance structures
 d2.b_uns &lt;- geeglm(response ~ trt * month , id=id, family=binomial, corstr = &quot;unstructured&quot;, data=d2)
 d2.b_ar &lt;- geeglm(response ~ trt * month , id=id, family=binomial, corstr = &quot;ar1&quot;, data=d2)
@@ -532,7 +532,7 @@ kable(model.sel(d2.b_uns, d2.b_ar, d2.b_ind, d2.b_exc, rank = QIC),
 </tr>
 </tbody>
 </table>
-<p>Comparing QIC, <em>unstructured</em> gives the lowest with 1835.2. <em>ar</em>, <em>exchangeable</em> and <em>independent</em> comes close with 1836.1, 1836.7 and 1837.7 respectively. I choose to proceed with using <em>unstructured</em> as it gives lowest QIC (even if differences are minor), the number of participants is larger than number of observations, and it actually computes. I think <em>unstructured</em> also makes sense as <em>month</em> is recorded on a continuus scale, with different intervals between observations.</p>
+<p>Comparing QIC, <em>unstructured</em> gives the lowest with 1835.2. <em>ar</em>, <em>exchangeable</em> and <em>independent</em> comes close with 1836.1, 1836.7 and 1837.7 respectively. I chose to proceed with <em>unstructured</em> as it gives the lowest QIC (even if differences are minor), the number of participants is larger than number of observations, and it actually computes. I think <em>unstructured</em> also makes sense as <em>month</em> is recorded on a continuus scale, with different intervals between observations.</p>
 <p>Results from the model using <em>unstructured</em>:</p>
 <pre class="r"><code># coefficients w/ CI95%
 table_2b &lt;- round(cbind(OR=exp(d2.b_uns$coefficients), 
@@ -1122,7 +1122,7 @@ kable(or_time_table, format = 'pandoc', caption=&quot;OR for treat at different 
 </tr>
 </tbody>
 </table>
-<p>We notice that the coefficients, <em>time:treat</em>, <em>treat:time^2</em> and <em>center</em> seem to have large effects, and they are all significant. <em>time:treat</em> have an estimated OR of 8.190 with 95% CI=[2.87, 23.39], which means that the odds of response are 8.19 times higher in the treatment group, for each month that passes, compared to both groups at baseline. Accounting for the apparent non-linear development over time, <em>treat:time^2</em> have an estimated OR of 0.64 with 95% CI=[0.49, 0.84]. This means the odds of response are reduced by 36% for each month^2. The total OR of being in the treatment group changes over time, and are shown in table 12. <em>center</em> have an estimated OR of 6.73 with 95% CI=[2.31, 19.63], which means the odds of response are 6.73 times higher for individuals at center 2 compared to center 1. The timedevelopment in the placebo group is captured by <em>time</em> and <em>time^2</em>, which indicate a slight negative trend which flatten and turn positive, but these coefficients were not found significant (p=.63 and p=.72 respectively). <em>age</em> is only significant at <span class="math inline">\(\alpha = 0.01\)</span> level, but indicate a reduction in odds of response by 3.4% [9%, -.5%] per year.</p>
+<p>We notice that the coefficients, <em>time:treat</em>, <em>treat:time^2</em> and <em>center</em> seem to have large effects, and they are all significant. <em>time:treat</em> have an estimated OR of 8.190 with 95% CI=[2.87, 23.39], which means that the odds of response are 8.19 times higher in the treatment group, for each month that passes, compared to both groups at baseline. Accounting for the apparent non-linear development over time, <em>treat:time^2</em> have an estimated OR of 0.64 with 95% CI=[0.49, 0.84]. This means the odds of response are reduced by 36% for each month^2. The total OR of being in the treatment group changes over time, and are shown in table 12. <em>center</em> have an estimated OR of 6.73 with 95% CI=[2.31, 19.63], which means the odds of response are 6.73 times higher for individuals at center 2 compared to center 1. The timedevelopment in the placebo group is captured by <em>time</em> and <em>time^2</em>, which indicate a slight negative trend which flatten and turn positive, but these coefficients were not found significant (p=.63 and p=.72 respectively). <em>age</em> is only significant at <span class="math inline">\(\alpha = 0.01\)</span> level, but indicate a reduction in odds of response by 3.4% [9%, -.5%] per year. The model included a random intercept for individuals (id), and we found an ICC of 0.6015 for this random effect.</p>
 <pre class="r"><code># https://cran.r-project.org/web/packages/dotwhisker/vignettes/kl2007_examples.html
 tidy(d3.m_c3)[1:7,1:5] %&gt;%
   mutate(or = exp(estimate), #var.diag = diag(vcov(d3.mod_c3)),
@@ -1145,7 +1145,8 @@ tidy(d3.m_c3)[1:7,1:5] %&gt;%
 Dot plot with error bars of OR of regression coefficients, vertical line at OR=1
 </p>
 </div>
-<p>The model included a random intercept for individuals (id), and we found an ICC of 0.6015 for this random effect.</p>
+<hr />
+<p>This exam answer with code included is avaliable at: <a href="https://ogtveit.github.io/exam_mf9555.html" class="uri">https://ogtveit.github.io/exam_mf9555.html</a></p>
 </div>
 </div>
 
