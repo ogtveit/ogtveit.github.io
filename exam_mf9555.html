@@ -11,7 +11,7 @@
 
 <meta name="author" content="Ole Gunnar Tveit" />
 
-<meta name="date" content="2018-05-03" />
+<meta name="date" content="2018-05-04" />
 
 <title>Exam MF9555</title>
 
@@ -141,7 +141,7 @@ $(document).ready(function () {
 
 <h1 class="title toc-ignore">Exam MF9555</h1>
 <h4 class="author"><em>Ole Gunnar Tveit</em></h4>
-<h4 class="date"><em>2018-05-03</em></h4>
+<h4 class="date"><em>2018-05-04</em></h4>
 
 </div>
 
@@ -285,7 +285,7 @@ kable(round(cbind(tidy(d1.mod_b)[2:5], confint(d1.mod_b)),3),
 </tr>
 </tbody>
 </table>
-<p>We see a significant difference of genders, estimated to 137.78, 95%CI=[52.899233, 222.6574] and p=.0015. We would thus expect boys to weigh on average 137.78 grams more than girls. There is also a significant difference between birth_no of 1 and 2 estimated to 100.51, 95%CI=[6.168245, 194.8454] and p=.037. The difference between birth_no 1 and 3 is estimated to 104.71, 95%CI=[-14.933617, 224.3578], and is not significant with p=.086. The effect of mothers born before 1.1.1960 was not found significant, with p=.513.</p>
+<p>We see a significant difference of genders, estimated to 137.78, 95%CI=[52.89, 222.65] and p=.0015. We would thus expect boys to weigh on average 137.78 grams more than girls. There is also a significant difference between birth_no of 1 and 2 estimated to 100.51, 95%CI=[6.16, 194.84] and p=.037. The difference between birth_no 1 and 3 is estimated to 104.71, 95%CI=[-14.93, 224.35], and is not significant with p=.086. The effect of mothers born before 1.1.1960 was not found significant, with p=.513.</p>
 </div>
 <div id="excercise-1c" class="section level3">
 <h3>Excercise 1c</h3>
@@ -293,7 +293,7 @@ kable(round(cbind(tidy(d1.mod_b)[2:5], confint(d1.mod_b)),3),
 <pre class="r"><code># mixed model
 d1.mod_c &lt;- lmer(weight ~ factor(gender) + factor(birth_no) + after_1959 + (1 | mother), data=d1)
 
-table_1c &lt;- round(data.frame(coef(summary(d1.mod_c)), CI=confint(d1.mod_c)[3:7,]), 3)
+table_1c &lt;- round(data.frame(coef(summary(d1.mod_c)), CI=round(confint(d1.mod_c)[3:7,], 2)), 3)
 colnames(table_1c) &lt;- c(&quot;estimate&quot;, &quot;std.error&quot;, &quot;df&quot;, &quot;t-value&quot;, &quot;p-value&quot;, &quot;2.5%&quot;, &quot;97.5%&quot;)
 kable(table_1c, format = 'pandoc', caption=&quot;Linear mixed model regression results with the explanatory variables gender, birth order and mother born after 1959 &quot;)</code></pre>
 <table>
@@ -318,7 +318,7 @@ kable(table_1c, format = 'pandoc', caption=&quot;Linear mixed model regression r
 <td align="right">439.8</td>
 <td align="right">72.676</td>
 <td align="right">0.000</td>
-<td align="right">3262.113</td>
+<td align="right">3262.11</td>
 <td align="right">3442.5</td>
 </tr>
 <tr class="even">
@@ -328,7 +328,7 @@ kable(table_1c, format = 'pandoc', caption=&quot;Linear mixed model regression r
 <td align="right">478.6</td>
 <td align="right">3.574</td>
 <td align="right">0.000</td>
-<td align="right">63.075</td>
+<td align="right">63.08</td>
 <td align="right">215.4</td>
 </tr>
 <tr class="odd">
@@ -338,7 +338,7 @@ kable(table_1c, format = 'pandoc', caption=&quot;Linear mixed model regression r
 <td align="right">331.5</td>
 <td align="right">2.690</td>
 <td align="right">0.007</td>
-<td align="right">27.725</td>
+<td align="right">27.73</td>
 <td align="right">175.8</td>
 </tr>
 <tr class="even">
@@ -348,7 +348,7 @@ kable(table_1c, format = 'pandoc', caption=&quot;Linear mixed model regression r
 <td align="right">360.8</td>
 <td align="right">1.822</td>
 <td align="right">0.069</td>
-<td align="right">-6.668</td>
+<td align="right">-6.67</td>
 <td align="right">188.8</td>
 </tr>
 <tr class="odd">
@@ -358,17 +358,17 @@ kable(table_1c, format = 'pandoc', caption=&quot;Linear mixed model regression r
 <td align="right">253.6</td>
 <td align="right">0.644</td>
 <td align="right">0.520</td>
-<td align="right">-70.366</td>
+<td align="right">-70.37</td>
 <td align="right">139.4</td>
 </tr>
 </tbody>
 </table>
-<p>We see a significant difference of genders , estimated to 139.22, 95%CI=[63.075011, 215.3965] and p&lt;.001. We would thus expect boys to weigh on average 139.22 grams more than girls. There is also a significant difference between birth_no of 1 and 2 estimated to 101.78, 95%CI=[ 27.725363, 175.8136] and p=.007. The difference between birth_no 1 and 3 is estimated to 90.95, 95%CI=[-6.667574, 188.7693], and is not significant with p=.069. The effect of mothers born before 1.1.1960 was not found significant, with p=.520.</p>
+<p>We see a significant difference of genders , estimated to 139.22, 95%CI=[63.07, 215.39] and p&lt;.001. We would thus expect boys to weigh on average 139.22 grams more than girls. There is also a significant difference between birth_no of 1 and 2 estimated to 101.78, 95%CI=[ 27.72, 175.81] and p=.007. The difference between birth_no 1 and 3 is estimated to 90.95, 95%CI=[-6.66, 188.76], and is not significant with p=.069. The effect of mothers born before 1.1.1960 was not found significant, with p=.520.</p>
 <p>Adding random intercept of mothers to the model reduces unceirtainty of the model, which we see by the standard errors of the coefficients. The std.error for gender, birth_no2 and birth_no3 is 43.2, 48.0 and 60.9 with the linear model, but is reduced to 38.9, 37.8 and 49.9 with the mixed model. This is related to some of the variance being explained by the random intercepts, and lead to higher test statistics and lower p-values.</p>
 </div>
 <div id="excercise-1d" class="section level3">
 <h3>Excercise 1d</h3>
-<p>We can check the correlation of siblings birth weight by calculating the inter class correlation. This will give us the variation explained by the clustering unit, IE. mother. We calculate ICC by dividing the variance for the clustering unit (mother variance = 110635) by the total variance (mother variance: 110635 + residual variance: 153980). We then get 0,418. The icc method of the sjstats library in R calculates the ICC of mother to: 0.4181, which confirms our calculation.</p>
+<p>We can check the correlation of siblings birth weight by calculating the interclass correlation (ICC). This will give us the variation explained by the clustering unit, IE. mother. We calculate ICC by dividing the variance for the clustering unit (mother variance = 110635) by the total variance (mother variance: 110635 + residual variance: 153980). We then get 0,418. The icc method of the sjstats library in R calculates the ICC of mother to: 0.4181, which confirms our calculation.</p>
 <p>In conclusion, birth weight of siblings seems to have a correlation of 0.418.</p>
 </div>
 <div id="excercise-1e" class="section level3">
@@ -446,7 +446,7 @@ Binomial fit of the two groups mean change in response over time
 </tr>
 </tbody>
 </table>
-<p>The two groups seem to have an approximately equal response (amount of patients with moderate or severe separation of nail plate from nail bed) at baseline, with treatment B (trt=1) showing a steeper reduction in moderate/severe symptoms as compared to treatment A. The difference in response is greatest after 7-8 months, but there is still a difference at the last timepoint.</p>
+<p>Response in this data means patient(s) with moderate or severe separation of nail plate from nail bed. The two groups seem to have an approximately equal response at baseline, with treatment B (trt=1) showing a steeper reduction in moderate/severe symptoms as compared to treatment A. The difference in response is greatest after 7-8 months, but there is still a difference at the last timepoint.</p>
 </div>
 <div id="excercise-2b" class="section level3">
 <h3>Excercise 2b</h3>
@@ -458,8 +458,9 @@ d2.b_ind &lt;- geeglm(response ~ trt * month , id=id, family=binomial, corstr = 
 d2.b_exc &lt;- geeglm(response ~ trt * month , id=id, family=binomial, corstr = &quot;exchangeable&quot;, data=d2)
 
 # find QIC, and rank the models:
-kable(model.sel(d2.b_uns, d2.b_ar, d2.b_ind, d2.b_exc, rank = QIC),
-  format = 'pandoc', caption=&quot;Model comparison of different working correlations&quot;)</code></pre>
+model.sel(d2.b_uns, d2.b_ar, d2.b_ind, d2.b_exc, rank = QIC) %&gt;%
+  select(-df) %&gt;%
+  kable(format = 'pandoc', caption=&quot;Model comparison of different working correlations&quot;)</code></pre>
 <table>
 <caption>Model comparison of different working correlations</caption>
 <thead>
@@ -470,7 +471,6 @@ kable(model.sel(d2.b_uns, d2.b_ar, d2.b_ind, d2.b_exc, rank = QIC),
 <th align="right">trt</th>
 <th align="right">month:trt</th>
 <th align="left">corstr</th>
-<th align="right">df</th>
 <th align="right">qLik</th>
 <th align="right">QIC</th>
 <th align="right">delta</th>
@@ -485,7 +485,6 @@ kable(model.sel(d2.b_uns, d2.b_ar, d2.b_ind, d2.b_exc, rank = QIC),
 <td align="right">0.0373</td>
 <td align="right">-0.0896</td>
 <td align="left">unstructured</td>
-<td align="right">NA</td>
 <td align="right">-910.6</td>
 <td align="right">1835</td>
 <td align="right">0.0000</td>
@@ -498,7 +497,6 @@ kable(model.sel(d2.b_uns, d2.b_ar, d2.b_ind, d2.b_exc, rank = QIC),
 <td align="right">0.0691</td>
 <td align="right">-0.0968</td>
 <td align="left">ar1</td>
-<td align="right">NA</td>
 <td align="right">-909.1</td>
 <td align="right">1836</td>
 <td align="right">0.9065</td>
@@ -511,7 +509,6 @@ kable(model.sel(d2.b_uns, d2.b_ar, d2.b_ind, d2.b_exc, rank = QIC),
 <td align="right">-0.0006</td>
 <td align="right">-0.0672</td>
 <td align="left">independence</td>
-<td align="right">NA</td>
 <td align="right">-908.0</td>
 <td align="right">1837</td>
 <td align="right">1.5488</td>
@@ -524,7 +521,6 @@ kable(model.sel(d2.b_uns, d2.b_ar, d2.b_ind, d2.b_exc, rank = QIC),
 <td align="right">0.0072</td>
 <td align="right">-0.0777</td>
 <td align="left">exchangeable</td>
-<td align="right">NA</td>
 <td align="right">-908.3</td>
 <td align="right">1838</td>
 <td align="right">2.4921</td>
@@ -818,15 +814,15 @@ Loess and binom poly(x + x^2) fit of the groups change over time, by center
 <div id="excercise-3b" class="section level3">
 <h3>Excercise 3b</h3>
 <p>Some possible approaches to deal with nonlinear development could be:</p>
-<p><strong>Use meaningful summary statistics</strong>: Possible summary statistics could be looking only at respons at last timepoint, looking at change in response from timepoint 0 to timepoint 4. Then we could test differences with a t-test. There are also other possible summary measures like area-under-curve, time-until-max, and peak value. When using summary statistics you loose information, so it is important to choose an approach that gives good information about what you care about. In our case we might be interested in who has the best response at the and, who got cured, so it might be possible to test the difference in respons between the two groups at timepoint 4.</p>
-<p><strong>convert variable to categorical</strong>: In some cases it may be useful to analyse the variable as a categorical variable instead of as a continous variable. The the effect may be interpreted as “odds ratio at this point in time compared to a reference point”, where reference point is usually the first timepoint. If the time development seem to have one bend (change in development), it may be fruitful the select the timepoint at the bend as reference. Then you may look at time development before and after this change/bend.</p>
+<p><strong>Use meaningful summary statistics</strong>: Possible summary statistics could be looking only at respons at last timepoint, looking at change in response from timepoint 0 to timepoint 4. Then we could test differences with a t-test. There are also other possible summary measures like area-under-curve, time-until-max, and peak value. When using summary statistics you loose information, so it is important to choose an approach that gives good information about what you care about. In our case we might be interested in who has the best response at the and, who got cured, so it might be useful to test the difference in respons between the two groups at timepoint 4.</p>
+<p><strong>Convert variable to categorical</strong>: In some cases it may be useful to analyse the variable as a categorical variable instead of as a continous variable. The the effect may be interpreted as “odds ratio at this point in time compared to a reference point”, where reference point is usually the first timepoint. If the time development seem to have one bend (change in development), it may be fruitful the select the timepoint at the bend as reference. Then you may look at time development before and after this change/bend.</p>
 <p><strong>Transform the independent variables</strong>: Sometime a transformation of the independent variables could make a nonlinear relationship with the dependent variable into a linear relationship. Common transformations are log(x), sqrt(x) or 1/x. Something to think about is how to interpret the results, what does the transformed variable mean? For the task at hand i think it makes more sense to try to:</p>
 <p><strong>Model the nonlinearity with polynomials</strong>: A variation of the above is building a model that takes into account the nonlinearity trough polynomials. This acts kind of like an interaction, with for instance the variable time interacting with itself when you include <em>time^2</em> as a fixed effect. This approach was used in the plots above, where i included <em>time</em> and <em>time^2</em> to get a fit more similar to the loess fit. As the development over time seemed different in the tow treatment groups (more curvelinear in group 1), i will also try to include <em>time^2</em> as en interaction with <em>treat</em></p>
 </div>
 <div id="excercise-3c" class="section level3">
 <h3>Excercise 3c</h3>
-<p>I will build a model using a mixed model approach, starting with random intercepts for id. I will build towards a model wich includes the fixed effects: time, treat:time, time^2, treat:time^2 and center. But will also build less complex models to compare fit by AIC, and check which fixed effects should be included.</p>
-<p>Comparison of model 1 (center + age + time + treat:time), model 2 (model 1 + time^2) and model 3 (model 2 + treat:time^2):</p>
+<p>I will build a model using a mixed model approach, starting with random intercepts for id. I will try to include the non-linear elements with polynomials. I will build towards a model wich includes the fixed effects: time, treat:time, time^2, treat:time^2 and center. But will also build less complex models to compare fit by AIC, and check which fixed effects should be included.</p>
+<p>Comparison of some of the models tested is shown in table 10. Model 1 (center + age + time + treat:time), model 2 (model 1 + time^2) and model 3 (model 2 + treat:time^2).</p>
 <pre class="r"><code>d3.m_c1 &lt;- glmer(response ~ center + age + time + treat:time + (1 | id), family=binomial , data=d3.re)
 d3.m_c2 &lt;- glmer(response ~ center + age + time + treat:time + I(time^2) + (1 | id), family=binomial , data=d3.re)
 d3.m_c3 &lt;- glmer(response ~ center + age + time + treat:time + I(time^2) + I(treat*time^2) + (1 | id), family=binomial , data=d3.re)
@@ -1001,7 +997,7 @@ model.sel(d3.m_c1, d3.m_c2, d3.m_c3, rank=AIC) %&gt;%
 </tr>
 </tbody>
 </table>
-<p>My final model, with a summary shown in Table 11, explaining response includes <em>age</em>, <em>center</em>, <em>time</em>, <em>treat:time</em>, <em>time^2</em>, _treat*time^2_ as fixed effects and have random intercepts for id’s.</p>
+<p>My final model, with a summary shown in Table 11, includes the explanatory variables <em>age</em>, <em>center</em>, <em>time</em>, <em>treat:time</em>, <em>time^2</em>, _treat*time^2_ as fixed effects and have random intercepts for id’s.</p>
 <p>There seems to a significant difference between the two treatments, as the terms capturing effect of treatment group (the interaction terms <em>treat:time</em>, and <em>treat:time^2</em>) is significant. <em>time:treat</em> is significant with p&lt;.001 and <em>treat:time^2</em> is significant with p=.001. The odds ratio of <em>treat</em> is calculated by the following: <span class="math inline">\(OR(treat) = 0.643^{t^2} * 8.190^t\)</span>, where t = time. This give the following OR for <em>treat</em> at the different timepoints:</p>
 <pre class="r"><code>or_time_table &lt;- data.frame(timepoint=0, formula=&quot;0.643^0 * 8.190^0&quot;, OR=1, stringsAsFactors = F)
 for (t in 1:4) {
@@ -1049,7 +1045,7 @@ kable(or_time_table, format = 'pandoc', caption=&quot;OR for treat at different 
 </tr>
 </tbody>
 </table>
-<p>In conclusion, there is a significant effect of treatment (treat = 1, vs treat = 0). The effect of being in the treatment group is stronger at timepoint 2 and 3 than at timepoint 1 and 4</p>
+<p>In conclusion, there is a significant time effect of treatment (treat = 1, vs treat = 0). The effect of being in the treatment group is stronger at timepoint 2 and 3 than at timepoint 1 and 4</p>
 </div>
 <div id="excercise-3d" class="section level3">
 <h3>Excercise 3d</h3>
