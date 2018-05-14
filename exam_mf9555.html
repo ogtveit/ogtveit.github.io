@@ -11,7 +11,7 @@
 
 <meta name="author" content="Ole Gunnar Tveit" />
 
-<meta name="date" content="2018-05-04" />
+<meta name="date" content="2018-05-14" />
 
 <title>Exam MF9555</title>
 
@@ -141,7 +141,7 @@ $(document).ready(function () {
 
 <h1 class="title toc-ignore">Exam MF9555</h1>
 <h4 class="author"><em>Ole Gunnar Tveit</em></h4>
-<h4 class="date"><em>2018-05-04</em></h4>
+<h4 class="date"><em>2018-05-14</em></h4>
 
 </div>
 
@@ -373,7 +373,7 @@ kable(table_1c, format = 'pandoc', caption=&quot;Linear mixed model regression r
 </div>
 <div id="excercise-1e" class="section level3">
 <h3>Excercise 1e</h3>
-<p>Correlated birth weight between siblings may be related to genetic components, but there are a number of other reasons that may contribute this correlation. For example: Mothers behaviour during pregnancy like smoking, caffeine intake or excercise may impact birth weight. And mothers bahavior during different pregnancies could very well correlate. This could lead to a correlation of siblings birth weight disregarding genetic components. Thus we should be careful of makign statements about genetic components based on an observed correlation.</p>
+<p>Correlated birth weight between siblings may be related to genetic components, but there are a number of other reasons that may contribute this correlation. For example: Mothers behaviour during pregnancy like smoking, caffeine intake or exercise may impact birth weight. And mothers behavior during different pregnancies could very well correlate. This could lead to a correlation of siblings birth weight even if disregarding genetic components. Thus we should be careful of making statements about genetic components based on an observed correlation.</p>
 </div>
 </div>
 <div id="excercise-2" class="section level2">
@@ -652,7 +652,7 @@ kable(round(data.frame(cbind(OR=exp(d2.modb_uns_random$coefficients),
 </div>
 <div id="excercise-2e" class="section level3">
 <h3>Excercise 2e</h3>
-<p>Based on the model in excercise 2b, build a generalized linear mixed model (GLMM) with random intercepts for mothers. Based on results with marginal models I willcompare two models with random intercepts: one model with (mode_1) and one without (mode_2) <em>trt</em> as an individual fixed effect.</p>
+<p>Based on the model in excercise 2b, build a generalized linear mixed model (GLMM) with random intercepts for individuals. Based on results with marginal models I willcompare two models with random intercepts: one model with (mode_1) and one without (mode_2) <em>trt</em> as an individual fixed effect.</p>
 <pre class="r"><code>d2.mode_1 &lt;- glmer(response ~ trt * month + (1 | id), family=binomial, data=d2)
 d2.mode_2 &lt;- glmer(response ~ month + trt:month + (1 | id), family=binomial, data=d2)
 
