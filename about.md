@@ -4,6 +4,8 @@ title: About
 permalink: /about/
 ---
 
+![Profile picture](/assets/profil_hatt.jpg)
+
 This is the homepage of Ole Gunnar Tveit, psychologist and PhD-student in health service/psychiatry. 
 
 Interested in/fan of:
