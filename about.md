@@ -5,6 +5,7 @@ permalink: /about/
 ---
 
 ![Profile picture](/assets/profil_hatt.jpg)
+ORCID profile: [https://orcid.org/0000-0001-7901-8286](https://orcid.org/0000-0001-7901-8286)
 
 This is the homepage of Ole Gunnar Tveit, psychologist and PhD-student in health service/psychiatry. 
 
@@ -14,5 +15,3 @@ Interested in/fan of:
 - Metascience
 - Implementations of ML/AI in health
 - R/Python
-
-ORCID link: [https://orcid.org/0000-0001-7901-8286](https://orcid.org/0000-0001-7901-8286)
