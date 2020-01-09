@@ -15,3 +15,5 @@ Interested in/fan of:
 - Metascience
 - Implementations of ML/AI in health
 - R/Python
+- Running
+- LFC
