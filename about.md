@@ -9,7 +9,10 @@ permalink: /about/
 This is the homepage of Ole Gunnar Tveit, psychologist and PhD-student in health service/psychiatry. 
 
 Interested in/fan of:
-- Collaboration across health service levels
-- Methodology/ replications crisis
+- Health service utilization
+- Collaboration across mental health service providers
+- Metascience
 - Implementations of ML/AI in health
-- Python/Pandas/R(-studio)/tidy
+- R/Python
+
+ORCID link: [https://orcid.org/0000-0001-7901-8286](https://orcid.org/0000-0001-7901-8286)
