@@ -26,10 +26,10 @@ github_username:  ogtveit
 
 # Build settings
 markdown: kramdown
-theme: academic
+theme: minima
 plugins:
   - jekyll-feed
-  - jekyll-data
+#  - jekyll-data
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
