@@ -1,0 +1,7 @@
+---
+layout: post
+title:  '"Kronikk" published'
+date:   2020-02-13 10:17:55 +0100
+categories: publication
+---
+We (PhD-students Mina Dahli and me) have written a feature story ([kronikk](https://fremmedord.org/hva-betyr/kronikk/)) about potential collaboration between General practitioners and mental health professionals. The article can be read at [forskersonen.no](https://forskersonen.no/helsetjenester-kronikk-meninger/samarbeid-med-fastlegene-kan-bringe-psykologene-naermere-dem-som-trenger-det-men-systemet-legger-ikke-til-rette-for-det/1361724). We wrote in response to a previous feature story at the same site describing the problems with getting into mental health treatment in Norway (["Derfor er det så vanskelig å få hjelp hos psykolog"](https://forskersonen.no/helsepolitikk-kronikk-meninger/derfor-er-det-sa-vanskelig-a-fa-hjelp-hos-psykolog/1346173)). 
