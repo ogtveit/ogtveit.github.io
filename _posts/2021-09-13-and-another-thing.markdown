@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  'And, another thing! Possible _gender differences_ inside'
+title:  'And, another thing! Possible gender differences inside'
 date:   2021-09-13 06:42:13 +0100
 categories: [publication]
 ---
