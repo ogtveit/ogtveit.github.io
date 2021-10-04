@@ -5,11 +5,13 @@
 layout: home
 ---
 
-This is the homepage of Ole Gunnar Tveit, psychologist and PhD-student affiliated with Akershus University Hospital and University of Oslo.
+This is the homepage of Ole Gunnar Tveit, psychologist and PhD-student in health service/psychiatry.Affiliated with Akershus University Hospital and University of Oslo.
 
-Interested in:
+Interested in/fan of:
 - Health service utilization
 - Collaboration across mental health service providers
 - Metascience
 - Implementations of ML/AI in health
 - R/Python
+- Running
+- LFC
