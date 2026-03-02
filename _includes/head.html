@@ -1,14 +1,19 @@
 {% assign plang = page.lang | default: site.langs[0] | default: "en" %}
-<head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  {% if page.seo.title %}
-  <title>{{ page.seo.title }}</title>
-  {% else %}
-  <title>{{ page.title | append: " | " | default:"" }}{% include _i18n/i18n.html value=site.title %}</title>
+  {% assign page_title = page.seo.title | default: page.title %}
+  {% assign title_text = page_title %}
+  {% if site.title %}
+    {% if title_text %}
+      {% assign title_text = title_text | append: " | " | append: site.title %}
+    {% else %}
+      {% assign title_text = site.title %}
+    {% endif %}
   {% endif %}
+  {% assign title_text = title_text | default: site.title | truncate: 70, "" %}
+  <title>{{ title_text }}</title>
 
   {% if page.seo.description %}
   <meta name="description" content="{{ page.seo.description | truncate: 160 }}">
@@ -73,5 +78,3 @@
 
   {% if jekyll.environment == 'production' %}
   {% endif %}
-</head>
-

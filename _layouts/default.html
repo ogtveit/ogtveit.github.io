@@ -1,17 +1,31 @@
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: site.langs[0] | default: "en" }}">
-
-  {% include head.html %}
+{% assign lang_attribute = page.lang | default: site.langs[0] | default: 'en' %}
+<html lang="{{ lang_attribute }}">
+  <head>
+    {% assign page_title = page.seo.title | default: page.title %}
+    {% assign title_text = page_title %}
+    {% if site.title %}
+      {% if title_text %}
+        {% assign title_text = title_text | append: " | " | append: site.title %}
+      {% else %}
+        {% assign title_text = site.title %}
+      {% endif %}
+    {% endif %}
+    {% assign title_text = title_text | default: site.title | truncate: 70, "" %}
+    <title>{{ title_text }}</title>
+    {% include head.html %}
+  </head>
 
   <body>
 
     {% include header.html %}
 
     {% if page.layout == "post" %}
-    <main class="post-content" aria-label="Content">
+      {% assign main_class = "post-content" %}
     {% else %}
-    <main class="page-content" aria-label="Content">
+      {% assign main_class = "page-content" %}
     {% endif %}
+    <main class="{{ main_class }}" aria-label="Content">
       <div class="wrapper">
         {{ content }}
       </div>

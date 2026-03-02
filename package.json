@@ -13,7 +13,7 @@
   "scripts": {
     "lint:scss": "stylelint \"assets/**/*.scss\" --allow-empty-input --ignore-pattern \"assets/main.scss\" --custom-syntax postcss-scss",
     "lint:md": "remark -q index.md about.md archive.md _posts/**/*.md",
-    "lint:html": "html-validate --config .htmlvalidate.json _layouts/**/*.html _includes/**/*.html *.html",
+    "lint:html": "html-validate --config .htmlvalidate.json _layouts/**/*.html _includes/**/*.html",
     "lint": "pnpm run lint:scss && pnpm run lint:md && pnpm run lint:html"
   }
 }

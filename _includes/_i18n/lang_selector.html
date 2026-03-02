@@ -10,33 +10,23 @@
 {% endif %}
 
 <ul class="lang-selector">
-  <span class="lang-intro">
-    {{ site.data.academic_i18n.langs_avail[plang] }}
-  </span>
+  <li class="lang lang-intro">
+    <span>{{ site.data.academic_i18n.langs_avail[plang] }}</span>
+  </li>
   <li class="lang">
-    <a href="{{ page.url }}" title="{{ versions[plang] }} {{ page.title }}">
-      {{ plang }}
-    </a>
+    <a href="{{ page.url }}" title="{{ versions[plang] }} {{ page.title }}">{{ plang }}</a>
   </li>
 
-{% for t_lang in site.langs %}
-  {% unless t_lang == plang %}
-    {% assign t = i18n_posts | where:"lang",t_lang | first %}
-    <li class="lang">
-    {% if t %}
-      <a href="{{ t.url }}" rel="alternate" title="{{ versions[t_lang] }} {{ t.title }}">
-    {% else %}
-      <span class="no-version" title="{{ no_versions[t_lang] }}">
-    {% endif %}
-
-    {{ t_lang }}
-
-    {% if t %}
-      </a>
-    {% else %}
-      </span>
-    {% endif %}
-    </li>
-  {% endunless %}
-{% endfor %}
+  {% for t_lang in site.langs %}
+    {% unless t_lang == plang %}
+      {% assign t = i18n_posts | where:"lang",t_lang | first %}
+      <li class="lang">
+        {% if t %}
+          <a href="{{ t.url }}" rel="alternate" title="{{ versions[t_lang] }} {{ t.title }}">{{ t_lang }}</a>
+        {% else %}
+          <span class="no-version" title="{{ no_versions[t_lang] }}">{{ t_lang }}</span>
+        {% endif %}
+      </li>
+    {% endunless %}
+  {% endfor %}
 </ul>
