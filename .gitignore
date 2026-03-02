@@ -1,4 +1,48 @@
-_site
-.sass-cache
-.jekyll-metadata
-.jekyll-cache
+/bin/
+/.bundle
+/.bundle/config
+/.bundle/*
+/.sass-cache
+/.jekyll-metadata
+/.jekyll-cache
+/_site/
+
+# Bundler and Ruby artifacts
+*.gem
+*.rbc
+*.bundle
+*.log
+*.tmp
+*.pid
+*.seed
+*.dump
+
+# Dependency folders
+/node_modules/
+/vendor/
+.pnpm/
+
+# Package manager logs
+/pnpm-debug.log
+/yarn-error.log
+
+# Lockfiles
+/package-lock.json
+/yarn.lock
+
+# Editor/OS files
+.DS_Store
+Thumbs.db
+*~
+
+# Environments
+.env
+.env.local
+.env.*.local
+
+# Generated site
+/_site/
+
+# IDE/project files
+.vscode/
+.idea/
