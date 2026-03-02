@@ -16,10 +16,14 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 18
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 9
       - name: Install npm deps
-        run: npm ci
+        run: pnpm install
       - name: Run linters (SCSS/MD/HTML)
-        run: npm run lint || true
+        run: pnpm run lint
       - name: Build site
         run: bundle exec jekyll build
       - name: Run Ruby tests (if present)
