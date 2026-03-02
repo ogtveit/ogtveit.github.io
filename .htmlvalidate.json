@@ -3,7 +3,6 @@
     "html-validate:recommended"
   ],
   "rules": {
-    "attribute-allowed-values": "warning",
     "element-name-case": "error"
   }
 }
